@@ -13,10 +13,6 @@ module.exports = {
                 redish: "#EA001E",
                 "blueish-2": "#161829",
             },
-            animation: {},
-            keyframes: {
-                "end-left": {},
-            },
         },
     },
     plugins: [],

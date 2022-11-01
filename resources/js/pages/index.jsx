@@ -23,7 +23,6 @@ const HomePage = () => {
     useEffect(() => {
         getRockets();
     }, []);
-    console.log(rockets);
     return (
         <div className="h-screen w-screen min-h-screen overflow-auto scroll-smooth">
             <NavbarComponent />

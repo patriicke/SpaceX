@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NotFound from "./pages/404/NotFound";
 import HomePage from "./pages";
-import Rocket from "./pages/rocket/Rocket";
 import { RocketContext } from "./context/RocketsContext";
+import RocketPage from "./pages/rocket/RocketPage";
+import NotFoundPage from "./pages/404/NotFoundPage";
 
 const App = () => {
     const [rockets, setRockets] = useState([]);
@@ -12,8 +12,8 @@ const App = () => {
             <Router>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/rocket/:id" element={<Rocket />} />
-                    <Route path="*" element={<NotFound />} />
+                    <Route path="/rocket/:id" element={<RocketPage />} />
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </Router>
         </RocketContext.Provider>

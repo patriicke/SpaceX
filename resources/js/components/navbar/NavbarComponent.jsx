@@ -1,5 +1,6 @@
+import { faBarsStaggered } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import Logo from "./../../assets/logo/favicon.ico";
 const NavbarComponent = () => {
     const [currentLink, setCurrentLink] = useState(0);
@@ -26,7 +27,7 @@ const NavbarComponent = () => {
         },
     ];
     return (
-        <div className="h-20 w-full flex px-80 items-center justify-between">
+        <div className="h-20 w-full flex px-4 xl:px-80 items-center justify-between">
             <div className="flex items-center justify-center gap-3">
                 <img
                     src={Logo}
@@ -35,7 +36,7 @@ const NavbarComponent = () => {
                 />
                 <h1 className="text-white font-bold text-2xl">SpaceX</h1>
             </div>
-            <div className="flex items-center justify-center gap-8">
+            <div className="items-center justify-center gap-8 hidden md:flex">
                 {links.map((link, index) => (
                     <a
                         href={link.href}
@@ -49,6 +50,11 @@ const NavbarComponent = () => {
                     </a>
                 ))}
             </div>
+
+            <FontAwesomeIcon
+                icon={faBarsStaggered}
+                className={`text-white text-2xl cursor-pointer md:hidden`}
+            />
         </div>
     );
 };
