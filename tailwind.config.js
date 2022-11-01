@@ -8,9 +8,15 @@ module.exports = {
     ],
     theme: {
         extend: {
-            colors:{
-                "grayish":"#828282"
-            }
+            colors: {
+                blueish: "#000C21",
+                redish: "#EA001E",
+                "blueish-2": "#161829",
+            },
+            animation: {},
+            keyframes: {
+                "end-left": {},
+            },
         },
     },
     plugins: [],
