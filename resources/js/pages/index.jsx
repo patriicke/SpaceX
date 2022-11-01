@@ -1,4 +1,8 @@
 import React, { useContext, useEffect } from "react";
+import AboutComponent from "../components/home/AboutComponent";
+import ContactsComponent from "../components/home/ContactsComponent";
+import RocketsComponent from "../components/home/RocketsComponent";
+import ServicesComponent from "../components/home/ServicesComponent";
 import HomePageComponent from "../components/home/WelcomeComponent";
 import { RocketContext } from "../context/RocketsContext";
 import { api } from "./../api";
@@ -21,9 +25,13 @@ const HomePage = () => {
     }, []);
     console.log(rockets);
     return (
-        <div className="h-screen w-screen min-h-screen overflow-auto">
+        <div className="h-screen w-screen min-h-screen overflow-auto scroll-smooth">
             <NavbarComponent />
             <HomePageComponent />
+            <RocketsComponent />
+            <ServicesComponent />
+            <AboutComponent />
+            <ContactsComponent />
         </div>
     );
 };

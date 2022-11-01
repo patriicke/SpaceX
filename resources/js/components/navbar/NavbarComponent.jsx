@@ -10,11 +10,11 @@ const NavbarComponent = () => {
         },
         {
             title: "Rockets",
-            href: "#gallery",
+            href: "#rockets",
         },
         {
             title: "Services",
-            href: "#review",
+            href: "#services",
         },
         {
             title: "About",
@@ -33,12 +33,12 @@ const NavbarComponent = () => {
                     alt="Logo"
                     className="w-10 rounded-full bg-white "
                 />
-                <h1 className="text-white font-bold text-2xl">SpaceX</h1> 
+                <h1 className="text-white font-bold text-2xl">SpaceX</h1>
             </div>
             <div className="flex items-center justify-center gap-8">
                 {links.map((link, index) => (
-                    <Link
-                        to={link.href}
+                    <a
+                        href={link.href}
                         key={index}
                         className={`${
                             currentLink == index ? "text-redish" : "text-white"
@@ -46,7 +46,7 @@ const NavbarComponent = () => {
                         onClick={() => setCurrentLink(index)}
                     >
                         {link.title}
-                    </Link>
+                    </a>
                 ))}
             </div>
         </div>
