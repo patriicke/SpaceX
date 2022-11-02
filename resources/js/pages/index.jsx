@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Banner from "../components/banner/Banner";
 import ContactsComponent from "../components/home/ContactsComponent";
 import RocketsComponent from "../components/home/RocketsComponent";
@@ -9,7 +9,8 @@ import { api } from "./../api";
 import NavbarComponent from "./../components/navbar/NavbarComponent";
 
 const HomePage = () => {
-    const { rockets, setRockets } = useContext(RocketContext);
+    const { setRockets } = useContext(RocketContext);
+    const [showBanner, setShowBanner] = useState(false);
     const getRockets = async () => {
         try {
             const request = await api.get("/");
@@ -21,12 +22,16 @@ const HomePage = () => {
         }
     };
     useEffect(() => {
-        // getRockets();
+        getRockets();
+        const banner = setTimeout(() => {
+            setShowBanner(true);
+        }, 1000);
+        return () => clearTimeout(banner);
     }, []);
     return (
-        <div className="h-screen w-screen min-h-screen overflow-auto scroll-smooth">
+        <div className="h-screen w-screen min-h-screen overflow-auto scroll-smooth overflow-x-hidden">
             <NavbarComponent />
-            <Banner />
+            <Banner showBanner={showBanner} setShowBanner={setShowBanner} />
             <WelcomeComponent />
             <RocketsComponent />
             <ServicesComponent />
