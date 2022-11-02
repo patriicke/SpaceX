@@ -10,6 +10,8 @@ This is the guide to use the SpaceX clone on your device.
 
 **3**. After installing you are now able to use the application by simply running these commands. **npm run dev** and **npm run php** and go to this link **localhost:8000** to run the application in browser.
 
+**4**. **Note:** we can find **React** in **resources/js** directory and **APIs** in **routes/api.php** file to find **authorization endpoints** of the app. **OPP** is followed as required. 
+
 **Here is attached the video of the frontend of SpaceX clone simply click on it.**
 Click here: https://cloudinary.com/console/c-d378f1b76e703dff99ded71b31b92b/media_library/folders/home
 
