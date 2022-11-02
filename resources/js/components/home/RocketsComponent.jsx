@@ -53,6 +53,7 @@ const RocketsComponent = () => {
                     }
                 });
                 setFoundRocket([rockets[idx1]]);
+                break;
             default:
                 setFoundRocket(rockets);
         }

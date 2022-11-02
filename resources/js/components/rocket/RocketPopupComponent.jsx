@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const RocketPopupComponent = ({ rocket, setRocketPopup }) => {
+const RocketPopupComponent = ({ rocket, setRocketPopup, rocketPopup }) => {
     const PopupElement = useRef();
     const [currentShow, setCurrentShow] = useState(0);
     useEffect(() => {
@@ -41,7 +41,7 @@ const RocketPopupComponent = ({ rocket, setRocketPopup }) => {
     ];
     return (
         <div
-            className="relative w-full md:w-4/5 h-4/5 bg-slate-200 p-3 px-4 rounded-md flex flex-col items-center gap-4"
+            className="relative w-full md:w-4/5 h-4/5 min-h-fit overflow-auto bg-slate-200 p-3 px-4 rounded-md flex flex-col items-center gap-4 "
             ref={PopupElement}
         >
             <button
@@ -56,16 +56,23 @@ const RocketPopupComponent = ({ rocket, setRocketPopup }) => {
             <div>
                 <h1 className="text-2xl font-medium">{rocket?.rocket_name}</h1>
             </div>
-            <div className="relative w-[45em] flex flex-col items-center gap-2">
+            <div className="relative lg:w-[45em] flex flex-col items-center gap-2">
                 <img
                     src={rocket?.flickr_images[currentShow]}
                     alt="image"
                     className="w-full"
                 />
                 <button
-                    className="bg-white absolute p-2 top-[45%] right-2 flex items-center justify-center rounded-full cursor-pointer"
-                    onClick={() => setCurrentShow((c) => c + 1)}
-                    disabled={currentShow == rocket?.flickr_images?.length - 1}
+                    className={`bg-white absolute p-2 top-[45%] right-2 flex items-center justify-center rounded-full cursor-pointer ${
+                        !rocketPopup && "hidden"
+                    }`}
+                    onClick={() => {
+                        setCurrentShow((c) =>
+                            currentShow == rocket?.flickr_images?.length - 1
+                                ? 0
+                                : c + 1
+                        );
+                    }}
                 >
                     <FontAwesomeIcon
                         icon={faChevronRight}
@@ -73,9 +80,14 @@ const RocketPopupComponent = ({ rocket, setRocketPopup }) => {
                     />
                 </button>
                 <button
-                    className="bg-white absolute top-[45%] p-2 flex items-center justify-center rounded-full left-2 cursor-pointer"
-                    onClick={() => setCurrentShow((c) => c - 1)}
-                    disabled={currentShow == 0}
+                    className={`bg-white absolute top-[45%] p-2 flex items-center justify-center rounded-full left-2 cursor-pointer`}
+                    onClick={() =>
+                        setCurrentShow((c) =>
+                            currentShow == 0
+                                ? rocket?.flickr_images?.length - 1
+                                : c - 1
+                        )
+                    }
                 >
                     <FontAwesomeIcon
                         icon={faChevronLeft}
@@ -88,6 +100,7 @@ const RocketPopupComponent = ({ rocket, setRocketPopup }) => {
                             className={`w-3 h-3 rounded-full ${
                                 currentShow == index ? "bg-redish" : "bg-white"
                             }`}
+                            key={index}
                         ></div>
                     ))}
                 </div>

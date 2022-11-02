@@ -104,7 +104,6 @@ const ContactsComponent = () => {
                                             name="full_name"
                                             type="text"
                                             className="focus:outline-none focus:border focus:border-indigo-700 font-normal w-64 h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
-                                            placeholder
                                         />
                                     </div>
                                 </div>
@@ -122,7 +121,6 @@ const ContactsComponent = () => {
                                             name="email"
                                             type="email"
                                             className="focus:outline-none focus:border focus:border-indigo-700 font-normal w-64 h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
-                                            placeholder
                                         />
                                     </div>
                                 </div>
@@ -142,7 +140,6 @@ const ContactsComponent = () => {
                                             name="phone"
                                             type="tel"
                                             className="focus:outline-none focus:border focus:border-indigo-700 font-normal w-64 h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
-                                            placeholder
                                         />
                                     </div>
                                 </div>
@@ -156,7 +153,6 @@ const ContactsComponent = () => {
                                         Message
                                     </label>
                                     <textarea
-                                        placeholder
                                         name="message"
                                         className="border-gray-300 border mb-4 rounded py-2 text-sm outline-none resize-none px-3 focus:border focus:border-indigo-700"
                                         rows={8}
