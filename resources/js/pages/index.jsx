@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import AboutComponent from "../components/home/AboutComponent";
+import Banner from "../components/banner/Banner";
 import ContactsComponent from "../components/home/ContactsComponent";
 import RocketsComponent from "../components/home/RocketsComponent";
 import ServicesComponent from "../components/home/ServicesComponent";
@@ -26,10 +26,10 @@ const HomePage = () => {
     return (
         <div className="h-screen w-screen min-h-screen overflow-auto scroll-smooth">
             <NavbarComponent />
+            <Banner />
             <WelcomeComponent />
             <RocketsComponent />
             <ServicesComponent />
-            <AboutComponent />
             <ContactsComponent />
         </div>
     );

@@ -67,7 +67,7 @@
         transform: rotate(360deg);
       }
     }
-    .hiddens {
+    .hide {
       display: none;
     }
     body {
@@ -98,12 +98,13 @@
   <script>
     const global = globalThis;
     window.addEventListener("load", () => {
-      document.querySelector(".loader")?.classList.add("hiddens");
+      document.querySelector(".loader")?.classList.add("hide");
       let standChild = document.querySelectorAll(".stand-child");
       for (i = 0; i < standChild?.length; i++)
         standChild[i]?.classList?.add("stand-child-transition");
       setTimeout(() => {
-        document.querySelector(".loading-container")?.classList.add("hiddens");
+        document.querySelector(".loading-container")?.classList.add("hide");
+        document.querySelector(".loading-container")?.classList.add("hidden");
         document.querySelector("#root")?.classList.remove("body");
       }, 500);
     });

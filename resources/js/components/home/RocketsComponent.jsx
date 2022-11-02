@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import RocketCard from "../rocket/RocketCard";
-import { useContext } from "react";
 import { RocketContext } from "../../context/RocketsContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -531,8 +530,8 @@ const RocketsComponent = () => {
     return (
         <>
             <div
-                className={`h-screen w-screen absolute top-0 z-50 flex items-center justify-center ${
-                    rocketPopup ? "translate-x-0" : "-translate-x-[100%]"
+                className={`h-screen w-screen absolute top-0   flex items-center justify-center ${
+                    rocketPopup ? "translate-x-0 z-50" : "-translate-x-[100%] -z-50"
                 } duration-300`}
             >
                 <RocketPopupComponent

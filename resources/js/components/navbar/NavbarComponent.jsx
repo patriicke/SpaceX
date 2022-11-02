@@ -18,12 +18,8 @@ const NavbarComponent = () => {
             href: "#services",
         },
         {
-            title: "About",
-            href: "#about",
-        },
-        {
             title: "Contact Us",
-            href: "#contact",
+            href: "#contacts",
         },
     ];
     const [navbar, setNavbar] = useState(false);
