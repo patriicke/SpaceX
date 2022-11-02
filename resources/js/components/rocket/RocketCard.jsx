@@ -3,7 +3,7 @@ import Slide from "react-reveal/Slide";
 const RocketCard = ({ images, description, name }) => {
     return (
         <Slide bottom loop>
-            <div className="max-w-[25em] bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 h-[41rem] duration-200 ease-in-out flex flex-col justify-between hover:border-redish">
+            <div className="w-full md:max-w-[25em] bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 h-[41rem] duration-200 ease-in-out flex flex-col justify-between hover:border-redish">
                 <div>
                     <a href="#">
                         <img

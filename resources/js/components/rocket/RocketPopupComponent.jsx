@@ -3,7 +3,6 @@ import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const RocketPopupComponent = ({ rocket, setRocketPopup }) => {
-    console.log(rocket);
     const PopupElement = useRef();
     useEffect(() => {
         const clickEvent = () => {
@@ -15,7 +14,7 @@ const RocketPopupComponent = ({ rocket, setRocketPopup }) => {
     }, [PopupElement]);
     return (
         <div
-            className="relative w-4/5 h-4/5 bg-slate-200 p-3 rounded-md"
+            className="relative w-full md:w-4/5 h-4/5 bg-slate-200 p-3 px-4 rounded-md flex flex-col items-center gap-3"
             ref={PopupElement}
         >
             <button
@@ -27,7 +26,23 @@ const RocketPopupComponent = ({ rocket, setRocketPopup }) => {
                     className={`text-md text-white`}
                 />
             </button>
-            <div>{rocket.rocket_name}</div>
+            {/* <div className=>{rocket.rocket_name}</div> */}
+            <div>
+                <h1 className="text-2xl font-medium">{rocket?.rocket_name}</h1>
+            </div>
+            <div>
+                {/* {rocket?.flickr_images[0] && (
+                    <img
+                        src={rocket?.flickr_images[0]}
+                        alt="image"
+                        className="rounded-md md:max-w-2xl"
+                    />
+                )} */}
+            </div>
+            <div className="md:w-1/2 text-center font-light">
+                <p>{rocket?.description}</p>
+            </div>
+            <div></div>
         </div>
     );
 };

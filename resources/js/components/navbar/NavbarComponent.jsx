@@ -41,7 +41,7 @@ const NavbarComponent = () => {
             <div
                 className={`absolute h-screen w-2/5 bg-black border-r-2 ${
                     navbar ? "translate-x-0" : "-translate-x-full"
-                } duration-200`}
+                } duration-200 z-50`}
                 ref={navbarElement}
             >
                 <div className="h-screen w-full relative">
@@ -81,7 +81,7 @@ const NavbarComponent = () => {
                     />
                     <h1 className="text-white font-bold text-2xl">SpaceX</h1>
                 </div>
-                <div className="items-center justify-center gap-8 hidden md:flex">
+                <div className="items-center justify-center gap-8 flex">
                     {links.map((link, index) => (
                         <a
                             href={link.href}
@@ -90,7 +90,7 @@ const NavbarComponent = () => {
                                 currentLink == index
                                     ? "text-redish"
                                     : "text-white"
-                            } hover:text-redish duration-500`}
+                            } hover:text-redish duration-500 hidden md:block`}
                             onClick={() => {
                                 setCurrentLink(index);
                                 setNavbar(false);
@@ -99,13 +99,13 @@ const NavbarComponent = () => {
                             {link.title}
                         </a>
                     ))}
+                    <span onClick={() => setNavbar(true)}>
+                        <FontAwesomeIcon
+                            icon={faBarsStaggered}
+                            className={`text-white text-2xl cursor-pointer md:hidden`}
+                        />
+                    </span>
                 </div>
-                <span onClick={() => setNavbar(true)}>
-                    <FontAwesomeIcon
-                        icon={faBarsStaggered}
-                        className={`text-white text-2xl cursor-pointer md:hidden`}
-                    />
-                </span>
             </div>
         </>
     );

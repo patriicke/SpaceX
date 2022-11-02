@@ -505,15 +505,35 @@ const RocketsComponent = () => {
                 });
                 setFoundRocket(newState);
                 break;
+            case "first_flight":
+                let idx,
+                    checker = new Date();
+                a.map((rocket, index) => {
+                    if (new Date(rocket.first_flight) < checker) {
+                        checker = new Date(rocket.first_flight);
+                        idx = index;
+                    }
+                });
+                setFoundRocket([a[idx]]);
+                break;
+            case "cost_per_launch":
+                let idx1,
+                    checker2 = 0;
+                a.map((rocket, index) => {
+                    if (rocket.cost_per_launch > checker2) {
+                        checker2 = rocket.cost_per_launch;
+                        idx1 = index;
+                    }
+                });
+                setFoundRocket([a[idx1]]);
         }
-        console.log(filterRocket);
     }, [filterRocket]);
     return (
         <>
             <div
                 className={`h-screen w-screen absolute top-0 z-50 flex items-center justify-center ${
                     rocketPopup ? "translate-x-0" : "-translate-x-[100%]"
-                } duration-200`}
+                } duration-300`}
             >
                 <RocketPopupComponent
                     rocket={rocketPopup}
@@ -521,31 +541,32 @@ const RocketsComponent = () => {
                 />
             </div>
             <section
-                className={`min-h-[calc(100vh_-_5rem)] w-full z-50 flex items-center justify-center flex-col gap-10 px-20 ${
+                className={`min-h-[calc(100vh_-_5rem)] w-full z-50 flex items-center justify-center flex-col gap-10 px-4 md:px-20 ${
                     rocketPopup ? "blur-sm" : ""
                 }`}
                 id="rockets"
             >
-                <div className="w-full gap-6 flex flex-col items-center justify-center">
+                <div className="flex flex-col items-center justify-center min-h-6 gap-10 w-full">
                     <h1 className="text-white text-3xl font-bold">
                         Here are our Rockets
                     </h1>
-                    <div className="flex justify-between  gap-6 h-12">
-                        <div className="bg-white flex px-3 items-center justify-between rounded-md">
+                    <div className="flex flex-col sm:flex-row  gap-6 w-full sm:items-center sm:justify-center p-1">
+                        <div className="bg-white flex px-3 items-center justify-between rounded-md h-12 w-full sm:max-w-sm">
                             <input
                                 type="text"
                                 name="search"
                                 placeholder="Rocket name"
-                                className="py-1 outline-none"
+                                className="py-1 outline-none h-full"
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
+                                autoComplete={"off"}
                             />
                             <FontAwesomeIcon
                                 icon={faSearch}
                                 className={"cursor-pointer text-redish"}
                             />
                         </div>
-                        <div className="flex w-full items-center h-full gap-3">
+                        <div className="flex max-w-sm items-center h-12 gap-3">
                             <label
                                 htmlFor="filter"
                                 className="text-white w-20 text-lg font-bold"
@@ -564,7 +585,9 @@ const RocketsComponent = () => {
                                 <option value="first_flight">
                                     First Flight
                                 </option>
-                                <option value="type">Type</option>
+                                <option value="cost_per_launch">
+                                    Expensive
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -584,6 +607,17 @@ const RocketsComponent = () => {
                             </div>
                         );
                     })}
+                    {foundRocket.length < 1 && (
+                        <div className="h-20">
+                            <h1 className="text-white text-xl font-medium">
+                                No rocket named{" "}
+                                <span className="text-redish underline underline-offset-2">
+                                    {search}
+                                </span>{" "}
+                                found.
+                            </h1>
+                        </div>
+                    )}
                 </div>
             </section>
         </>

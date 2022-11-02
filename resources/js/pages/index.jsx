@@ -21,7 +21,7 @@ const HomePage = () => {
         }
     };
     useEffect(() => {
-        getRockets();
+        // getRockets();
     }, []);
     return (
         <div className="h-screen w-screen min-h-screen overflow-auto scroll-smooth">

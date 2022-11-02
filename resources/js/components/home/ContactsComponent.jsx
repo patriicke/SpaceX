@@ -1,5 +1,4 @@
 import React from "react";
-import Bg_2 from "./../../assets/gif/gif_2.gif";
 const ContactsComponent = () => {
     return (
         <section
