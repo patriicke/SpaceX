@@ -1,5 +1,5 @@
 # Patrick-FrontDeveloper
-This is the SpaceX assignment in React and Php in connecting the SpaceX API and this application.
+This is the SpaceX project in Laravel + React.
 
 # This is the guide of the SpaceX
 This is the guide to use the SpaceX clone on your device.
